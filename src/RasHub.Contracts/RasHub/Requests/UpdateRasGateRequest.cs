@@ -10,4 +10,5 @@ public sealed record UpdateRasGateRequest(
     [StringLength(2_048, MinimumLength = 1)]
     string Url,
     [Range(1, 65_535)] int Port,
-    [StringLength(512, MinimumLength = 1)] string? ApiKey = null);
+    [StringLength(512, MinimumLength = 1)] string? ApiKey = null,
+    bool? IsActive = null);

@@ -12,4 +12,5 @@ public sealed record CreateRasGateRequest(
     [Range(1, 65_535)] int Port,
     [Required]
     [StringLength(512, MinimumLength = 1)]
-    string ApiKey);
+    string ApiKey,
+    bool IsActive = true);
