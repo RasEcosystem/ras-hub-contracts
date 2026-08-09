@@ -5,5 +5,6 @@ public record RasGateModel(
     string Name,
     string Url,
     int Port,
+    bool IsActive,
     DateTime CreatedAt,
     DateTime UpdatedAt);
