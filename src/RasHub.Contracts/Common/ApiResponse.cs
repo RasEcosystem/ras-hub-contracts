@@ -5,44 +5,30 @@ namespace RasHub.Contracts.Common;
 
 public sealed class ApiResponse<T> : IApiResponse
 {
-    private ApiResponse()
-    {
-    }
-
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyOrder(1)]
-    public T? Data { get; private init; }
+    public T? Data { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyOrder(2)]
-    public ApiError? Error { get; private init; }
+    public ApiError? Error { get; init; }
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
     [JsonPropertyOrder(3)]
-    public IReadOnlyCollection<ApiError>? Errors { get; private init; }
+    public IReadOnlyCollection<ApiError>? Errors { get; init; }
 
-    [JsonPropertyOrder(0)] public bool Success { get; private init; }
+    [JsonPropertyOrder(0)] public bool Success { get; init; }
 
     [JsonIgnore] public HttpStatusCode StatusCode { get; private init; } = HttpStatusCode.OK;
 
     public static ApiResponse<T> Ok(T? data = default)
     {
-        return new ApiResponse<T>
-        {
-            Success = true,
-            Data = data,
-            StatusCode = HttpStatusCode.OK
-        };
+        return new ApiResponse<T> { Success = true, Data = data, StatusCode = HttpStatusCode.OK };
     }
 
     public static ApiResponse<T> Created(T data)
     {
-        return new ApiResponse<T>
-        {
-            Success = true,
-            Data = data,
-            StatusCode = HttpStatusCode.Created
-        };
+        return new ApiResponse<T> { Success = true, Data = data, StatusCode = HttpStatusCode.Created };
     }
 
     public static ApiResponse<T> Fail(HttpStatusCode statusCode)
@@ -62,12 +48,7 @@ public sealed class ApiResponse<T> : IApiResponse
         HttpStatusCode statusCode,
         ApiError error)
     {
-        return new ApiResponse<T>
-        {
-            Success = false,
-            Error = error,
-            StatusCode = statusCode
-        };
+        return new ApiResponse<T> { Success = false, Error = error, StatusCode = statusCode };
     }
 
     public static ApiResponse<T> Fail(
@@ -82,13 +63,7 @@ public sealed class ApiResponse<T> : IApiResponse
         ApiError error,
         IEnumerable<ApiError> errors)
     {
-        return new ApiResponse<T>
-        {
-            Success = false,
-            Error = error,
-            Errors = errors.ToList(),
-            StatusCode = statusCode
-        };
+        return new ApiResponse<T> { Success = false, Error = error, Errors = errors.ToList(), StatusCode = statusCode };
     }
 
     private static ApiError GetDefaultError(HttpStatusCode status)

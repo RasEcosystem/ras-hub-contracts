@@ -1,22 +1,42 @@
 namespace RasHub.Contracts.RasHub.Models;
 
-public sealed record ClusterModel(
-    Guid Id,
-    string Name,
-    string Host,
-    int Port,
-    long ExpirationTimeoutSeconds,
-    long LifetimeLimitSeconds,
-    long MaxMemorySizeKb,
-    long MaxMemoryTimeLimitSeconds,
-    int SecurityLevel,
-    int SessionFaultToleranceLevel,
-    ClusterLoadBalancingMode LoadBalancingMode,
-    int ErrorsCountThresholdPercent,
-    bool KillProblemProcesses,
-    bool? KillByMemoryWithDump,
-    bool? AllowAccessRightAuditEventsRecording,
-    long? PingPeriod,
-    long? PingTimeout,
-    string? RestartSchedule,
-    DateTime ObservedAt);
+public sealed record ClusterModel
+{
+    public required Guid Id { get; init; }
+
+    public required string Name { get; init; }
+
+    public required string Host { get; init; }
+
+    public required int Port { get; init; }
+
+    public required long ExpirationTimeoutSeconds { get; init; }
+
+    public required long LifetimeLimitSeconds { get; init; }
+
+    public required long MaxMemorySizeKb { get; init; }
+
+    public required long MaxMemoryTimeLimitSeconds { get; init; }
+
+    public required int SecurityLevel { get; init; }
+
+    public required int SessionFaultToleranceLevel { get; init; }
+
+    public required ClusterLoadBalancingMode LoadBalancingMode { get; init; }
+
+    public required int ErrorsCountThresholdPercent { get; init; }
+
+    public required bool KillProblemProcesses { get; init; }
+
+    public bool? KillByMemoryWithDump { get; init; }
+
+    public bool? AllowAccessRightAuditEventsRecording { get; init; }
+
+    public long? PingPeriod { get; init; }
+
+    public long? PingTimeout { get; init; }
+
+    public string? RestartSchedule { get; init; }
+
+    public required DateTime ObservedAt { get; init; }
+}

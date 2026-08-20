@@ -1,10 +1,18 @@
 namespace RasHub.Contracts.RasHub.Models;
 
-public record RasGateModel(
-    Guid Id,
-    string Name,
-    string Url,
-    int Port,
-    bool IsActive,
-    DateTime CreatedAt,
-    DateTime UpdatedAt);
+public sealed record RasGateModel
+{
+    public required Guid Id { get; init; }
+
+    public required string Name { get; init; }
+
+    public required string Url { get; init; }
+
+    public required int Port { get; init; }
+
+    public required bool IsActive { get; init; }
+
+    public required DateTime CreatedAt { get; init; }
+
+    public required DateTime UpdatedAt { get; init; }
+}

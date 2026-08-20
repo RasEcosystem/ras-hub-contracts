@@ -1,16 +1,9 @@
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace RasHub.Contracts.RasHub.Requests;
 
 public sealed class SynchronizeInfobasesRequest : IValidatableObject
 {
-    [DefaultValue(1)]
-    [Range(1, int.MaxValue)]
-    public int Page { get; init; } = 1;
-
-    [DefaultValue(10)] [Range(1, 100)] public int PageSize { get; init; } = 10;
-
     [StringLength(512, MinimumLength = 1)] public string? ClusterUser { get; init; }
 
     [StringLength(512, MinimumLength = 1)] public string? ClusterPassword { get; init; }
