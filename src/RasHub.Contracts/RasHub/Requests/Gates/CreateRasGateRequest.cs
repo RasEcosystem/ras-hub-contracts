@@ -13,4 +13,10 @@ public sealed record CreateRasGateRequest(
     [Required]
     [StringLength(512, MinimumLength = 1)]
     string ApiKey,
-    bool IsActive = true);
+    bool IsActive = true)
+{
+    public override string ToString()
+    {
+        return nameof(CreateRasGateRequest);
+    }
+}

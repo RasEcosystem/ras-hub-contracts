@@ -1,6 +1,6 @@
 namespace RasHub.Contracts.RasHub.Models;
 
-public sealed record RasClusterModel(
+public sealed record ClusterModel(
     Guid Id,
     string Name,
     string Host,
@@ -11,7 +11,7 @@ public sealed record RasClusterModel(
     long MaxMemoryTimeLimitSeconds,
     int SecurityLevel,
     int SessionFaultToleranceLevel,
-    RasClusterLoadBalancingMode LoadBalancingMode,
+    ClusterLoadBalancingMode LoadBalancingMode,
     int ErrorsCountThresholdPercent,
     bool KillProblemProcesses,
     bool? KillByMemoryWithDump,

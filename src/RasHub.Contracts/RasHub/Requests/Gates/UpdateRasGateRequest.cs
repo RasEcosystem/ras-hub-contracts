@@ -11,4 +11,10 @@ public sealed record UpdateRasGateRequest(
     string Url,
     [Range(1, 65_535)] int Port,
     [StringLength(512, MinimumLength = 1)] string? ApiKey = null,
-    bool? IsActive = null);
+    bool? IsActive = null)
+{
+    public override string ToString()
+    {
+        return nameof(UpdateRasGateRequest);
+    }
+}

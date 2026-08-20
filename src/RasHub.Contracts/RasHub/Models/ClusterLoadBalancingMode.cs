@@ -1,6 +1,6 @@
 namespace RasHub.Contracts.RasHub.Models;
 
-public enum RasClusterLoadBalancingMode
+public enum ClusterLoadBalancingMode
 {
     Performance,
     Memory

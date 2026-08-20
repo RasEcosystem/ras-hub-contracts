@@ -2,11 +2,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RasHub.Contracts.RasHub.Requests;
 
-public sealed record RemoveRasClusterRequest(
-    [StringLength(512, MinimumLength = 1)] string? ClusterUser = null,
-    [StringLength(512, MinimumLength = 1)] string? ClusterPassword = null)
-    : IValidatableObject
+public sealed class SynchronizeInfobaseRequest : IValidatableObject
 {
+    [StringLength(512, MinimumLength = 1)] public string? ClusterUser { get; init; }
+
+    [StringLength(512, MinimumLength = 1)] public string? ClusterPassword { get; init; }
+
     public IEnumerable<ValidationResult> Validate(
         ValidationContext validationContext)
     {
@@ -14,5 +15,10 @@ public sealed record RemoveRasClusterRequest(
             yield return new ValidationResult(
                 "A cluster user is required when a cluster password is provided.",
                 [nameof(ClusterUser)]);
+    }
+
+    public override string ToString()
+    {
+        return nameof(SynchronizeInfobaseRequest);
     }
 }
