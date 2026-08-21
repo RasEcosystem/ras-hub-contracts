@@ -1,6 +1,6 @@
 namespace RasHub.Contracts.RasHub.Responses;
 
-public sealed record CollectionSynchronizationResponse
+public sealed record ShadowRefreshResponse
 {
     public required int TotalCount { get; init; }
 

@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace RasHub.Contracts.RasHub.Requests;
+namespace RasHub.Contracts.RasHub.Requests.Infobases;
 
-public sealed class SynchronizeInfobaseRequest : IValidatableObject
+public sealed class InfobaseCredentialsRequest : IValidatableObject
 {
     [StringLength(512, MinimumLength = 1)] public string? ClusterUser { get; init; }
 
@@ -19,6 +19,6 @@ public sealed class SynchronizeInfobaseRequest : IValidatableObject
 
     public override string ToString()
     {
-        return nameof(SynchronizeInfobaseRequest);
+        return nameof(InfobaseCredentialsRequest);
     }
 }
