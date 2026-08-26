@@ -38,6 +38,5 @@ public sealed record SearchInfobasesRequest : IValidatableObject
             yield return new ValidationResult(
                 "A RasGate filter is required when a cluster filter is provided.",
                 [nameof(RasGateId)]);
-
     }
 }

@@ -26,6 +26,5 @@ public sealed record SearchClustersRequest : IValidatableObject
             yield return new ValidationResult(
                 "The RasGate filter must not be empty.",
                 [nameof(RasGateId)]);
-
     }
 }
