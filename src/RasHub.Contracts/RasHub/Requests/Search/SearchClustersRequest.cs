@@ -8,7 +8,7 @@ public sealed record SearchClustersRequest : IValidatableObject
     [StringLength(SearchRequestValidation.QueryMaxLength, MinimumLength = 1)]
     public required string Query { get; init; }
 
-    public Guid? RasGateId { get; init; }
+    public Guid? RasEndpointId { get; init; }
 
     public ClusterSearchField[]? Fields { get; init; }
 
@@ -22,9 +22,9 @@ public sealed record SearchClustersRequest : IValidatableObject
                      nameof(Fields)))
             yield return result;
 
-        if (RasGateId == Guid.Empty)
+        if (RasEndpointId == Guid.Empty)
             yield return new ValidationResult(
-                "The RasGate filter must not be empty.",
-                [nameof(RasGateId)]);
+                "The RAS endpoint filter must not be empty.",
+                [nameof(RasEndpointId)]);
     }
 }

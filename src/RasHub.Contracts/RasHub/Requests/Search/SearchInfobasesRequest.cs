@@ -8,7 +8,7 @@ public sealed record SearchInfobasesRequest : IValidatableObject
     [StringLength(SearchRequestValidation.QueryMaxLength, MinimumLength = 1)]
     public required string Query { get; init; }
 
-    public Guid? RasGateId { get; init; }
+    public Guid? RasEndpointId { get; init; }
 
     public Guid? ClusterId { get; init; }
 
@@ -24,19 +24,19 @@ public sealed record SearchInfobasesRequest : IValidatableObject
                      nameof(Fields)))
             yield return result;
 
-        if (RasGateId == Guid.Empty)
+        if (RasEndpointId == Guid.Empty)
             yield return new ValidationResult(
-                "The RasGate filter must not be empty.",
-                [nameof(RasGateId)]);
+                "The RAS endpoint filter must not be empty.",
+                [nameof(RasEndpointId)]);
 
         if (ClusterId == Guid.Empty)
             yield return new ValidationResult(
                 "The cluster filter must not be empty.",
                 [nameof(ClusterId)]);
 
-        if (ClusterId is not null && RasGateId is null)
+        if (ClusterId is not null && RasEndpointId is null)
             yield return new ValidationResult(
-                "A RasGate filter is required when a cluster filter is provided.",
-                [nameof(RasGateId)]);
+                "A RAS endpoint filter is required when a cluster filter is provided.",
+                [nameof(RasEndpointId)]);
     }
 }
