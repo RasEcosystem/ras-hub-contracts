@@ -12,6 +12,8 @@ public sealed record UpdateRasGateRequest(
     string Url,
     [Range(1, 65_535)] int Port,
     [property: JsonRequired] bool IsActive,
+    [property: JsonRequired]
+    [Range(1, long.MaxValue)] long ExpectedConfigurationRevision,
     [StringLength(512, MinimumLength = 1)] string? ApiKey = null)
 {
     public override string ToString()

@@ -1,12 +1,12 @@
 namespace RasHub.Contracts.RasHub.Models;
 
-public sealed record RasGateModel
+public sealed record RasEndpointModel
 {
     public required Guid Id { get; init; }
 
     public required string Name { get; init; }
 
-    public required string Url { get; init; }
+    public required string Host { get; init; }
 
     public required int Port { get; init; }
 
