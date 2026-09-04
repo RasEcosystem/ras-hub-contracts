@@ -4,6 +4,8 @@ public sealed record RasEndpointModel
 {
     public required Guid Id { get; init; }
 
+    public required Guid RasGateId { get; init; }
+
     public required string Name { get; init; }
 
     public required string Host { get; init; }
@@ -11,6 +13,8 @@ public sealed record RasEndpointModel
     public required int Port { get; init; }
 
     public required bool IsActive { get; init; }
+
+    public DateTime? LastSeenAt { get; init; }
 
     public required long ConfigurationRevision { get; init; }
 

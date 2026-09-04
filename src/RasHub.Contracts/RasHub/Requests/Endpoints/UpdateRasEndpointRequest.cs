@@ -7,6 +7,7 @@ public sealed record UpdateRasEndpointRequest(
     [Required]
     [StringLength(200, MinimumLength = 1)]
     string Name,
+    [property: JsonRequired] Guid RasGateId,
     [Required]
     [StringLength(255, MinimumLength = 1)]
     string Host,

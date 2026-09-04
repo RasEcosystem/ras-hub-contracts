@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace RasHub.Contracts.RasHub.Requests;
 
@@ -6,6 +7,7 @@ public sealed record CreateRasEndpointRequest(
     [Required]
     [StringLength(200, MinimumLength = 1)]
     string Name,
+    [property: JsonRequired] Guid RasGateId,
     [Required]
     [StringLength(255, MinimumLength = 1)]
     string Host,
