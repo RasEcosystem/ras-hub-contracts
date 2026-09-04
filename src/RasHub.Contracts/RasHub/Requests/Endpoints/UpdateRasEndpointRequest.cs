@@ -14,4 +14,5 @@ public sealed record UpdateRasEndpointRequest(
     [Range(1, 65_535)] int Port,
     [property: JsonRequired] bool IsActive,
     [property: JsonRequired]
-    [Range(1, long.MaxValue)] long ExpectedConfigurationRevision);
+    [Range(1, long.MaxValue)]
+    long ExpectedConfigurationRevision);
